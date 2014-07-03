@@ -3,8 +3,8 @@
     <div class="thumbnail">
       <%= image_tag @listing.image.url %>
     </div>
-    <h3> <%= @listing.name %></h3>
-    <h4> <%= number_to_currency(@listing.price) %></h4>
+    <h3><%= @listing.name %></h3>
+    <h4><%= number_to_currency(@listing.price) %></h4>
   </div>
   <div class="col-md-8">
     <%= form_for([@listing, @order]) do |f| %>
@@ -20,6 +20,10 @@
           </ul>
         </div>
       <% end %>
+
+      <div id="stripe_error" class="alert alert-danger" style="display: none">
+        <noscript>Javascript is not enabled and is required for this form.</noscript>
+      </div>
 
       <div class="form-group">
         <%= f.label :address %>
